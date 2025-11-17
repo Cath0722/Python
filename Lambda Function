@@ -1,0 +1,14 @@
+def square(x):
+    return x * x
+
+print("Square using regular function:", square(5))
+
+square_lambda = lambda x: x * x
+print("Square using lambda function:", square_lambda(5))
+
+add = lambda a, b: a + b
+print("Addition using lambda:", add(10, 7))
+
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x**2, numbers))
+print("Squared numbers using lambda + map:", squared_numbers)
