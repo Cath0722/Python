@@ -1,0 +1,85 @@
+print("--- Tuple ---")
+my_tuple = (1, 2, 3, 4, 5)
+print("Tuple:", my_tuple)
+print("First element:", my_tuple[0])
+
+print("\n--- Set ---")
+my_set = {1, 2, 3, 3, 4}
+print("Set (duplicates removed):", my_set)
+my_set.add(5)
+print("After adding 5:", my_set)
+
+print("\n--- Linked List ---")
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+
+    def print_list(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+ll = LinkedList()
+ll.append(10)
+ll.append(20)
+ll.append(30)
+ll.print_list()
+
+print("\n--- Stack ---")
+stack = []
+stack.append(1)
+stack.append(2)
+stack.append(3)
+print("Stack:", stack)
+print("Pop from stack:", stack.pop())
+print("Stack after pop:", stack)
+
+print("\n--- Queue ---")
+from collections import deque
+queue = deque()
+queue.append(1)
+queue.append(2)
+queue.append(3)
+print("Queue:", queue)
+print("Dequeue from queue:", queue.popleft())
+print("Queue after dequeue:", queue)
+
+print("\n--- Binary Tree ---")
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def inorder_traversal(node):
+    if node:
+        inorder_traversal(node.left)
+        print(node.value, end=" ")
+        inorder_traversal(node.right)
+
+root = TreeNode(10)
+root.left = TreeNode(5)
+root.right = TreeNode(15)
+root.left.left = TreeNode(3)
+root.left.right = TreeNode(7)
+
+print("Inorder traversal of tree:", end=" ")
+inorder_traversal(root)
+print()
