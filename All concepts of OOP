@@ -1,0 +1,54 @@
+from abc import ABC, abstractmethod
+
+class Person:
+    def __init__(self, name, age):
+        self.__name = name     
+        self.__age = age       
+
+    def get_name(self):
+        return self.__name
+
+    def get_age(self):
+        return self.__age
+
+    def set_age(self, age):
+        if age > 0:
+            self.__age = age
+        else:
+            print("Age must be positive!")
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass  
+
+    def eat(self):
+        print("This animal eats food.")
+
+class Dog(Animal):  
+    def sound(self):
+        print("Dog barks.")
+
+class Cat(Animal): 
+    def sound(self):
+        print("Cat meows.")
+
+def make_sound(animal):
+    animal.sound() 
+if __name__ == "__main__":
+
+    p = Person("Hanna", 19)
+    print("Name:", p.get_name())
+    print("Age:", p.get_age())
+    p.set_age(19)
+    print("Updated Age:", p.get_age())
+
+    print("\n--- Abstraction & Inheritance & Polymorphism ---")
+    dog = Dog()
+    cat = Cat()
+
+    dog.eat()         
+    cat.eat()
+
+    make_sound(dog)    
+    make_sound(cat)
