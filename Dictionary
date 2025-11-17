@@ -1,0 +1,19 @@
+student = {
+    "name": "Cath",
+    "age": 19,
+    "course": "BSIT"
+}
+
+print("Name:", student["name"])
+print("Age:", student["age"])
+print("Course:", student.get("course"))
+
+student["year"] = 4
+print("Updated dictionary:", student)
+
+student.pop("age")
+print("After removing age:", student)
+
+print("All keys and values:")
+for key, value in student.items():
+    print(key, ":", value)
