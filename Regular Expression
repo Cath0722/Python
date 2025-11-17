@@ -1,0 +1,14 @@
+import re
+
+text = "My email is hanna@example.com and my backup is h.enna123@gmail.com"
+
+pattern = r"[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]+"
+
+emails = re.findall(pattern, text)
+print("Email addresses found:", emails)
+
+if re.match(r"^My", text):
+    print("Text starts with 'My'")
+
+text_with_masked_numbers = re.sub(r"\d", "#", text)
+print("Text after masking numbers:", text_with_masked_numbers)
